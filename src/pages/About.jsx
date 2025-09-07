@@ -1,6 +1,6 @@
 import React from 'react'
 import AboutImg from "../assets/about-image.png"
-
+import AboutImg2 from "../assets/about2.jpg"
 const About = () => {
   return (
     <>
@@ -38,7 +38,7 @@ const About = () => {
           </ul>
         </div>
         <div className="ai-detect-image">
-          <img src="ai-detection-process.png" alt="AI Detection Process"/>
+          <img src={AboutImg2} alt="AI Detection Process"/>
         </div>
       </section>
 

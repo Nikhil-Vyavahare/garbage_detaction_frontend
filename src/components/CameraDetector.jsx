@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-const BACKEND_URL = "http://127.0.0.1:8000/api/process-image/";
+const BACKEND_URL = "https://surveillance-api.onrender.com/api/process-image/";
 
 function CameraDetector() {
   const videoRef = useRef(null)
@@ -80,37 +80,32 @@ function CameraDetector() {
 
 
   return (
-    <div className="detector-root">
+     <div className="detector-root">
       <div className="video-wrap">
         <video ref={videoRef} className="video" playsInline muted />
         <canvas ref={canvasRef} style={{ display: 'none' }} />
         <canvas ref={outCanvasRef} className="overlay" />
-
         <div className="status-badge">
           {cvReady ? 'OpenCV ready' : 'Loading OpenCV...'}
         </div>
         <div className={`detection ${status}`}>{status}</div>
       </div>
-
       <div className="controls">
-        <p>
-          Detection status: <strong>{status}</strong>
-        </p>
-        <p>
-          Last saved: <strong>{lastSaved || '—'}</strong>
-        </p>
+        <p>Detection status: <strong>{status}</strong></p>
+        <p>Last saved: <strong>{lastSaved || '—'}</strong></p>
         <small>
           Tip: allow camera and position so garbage appears clearly in frame.
         </small>
-        <button
-          onClick={() => captureAndUpload(canvasRef.current)}
-          className="px-4 py-2 bg-green-600 rounded mt-2"
+        <button 
+          onClick={() => captureAndUpload(canvasRef.current)} 
+          className="snapshot-btn"
         >
           Save Snapshot
         </button>
       </div>
     </div>
-  )
+  );
+  
 }
 
 export default CameraDetector
